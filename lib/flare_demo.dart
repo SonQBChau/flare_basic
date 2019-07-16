@@ -1,3 +1,4 @@
+import 'package:flare_tutorial/smart_flare_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
@@ -13,16 +14,9 @@ class _FlareDemoState extends State<FlareDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 102, 18, 222),
-      body: GestureDetector(
-        onTap: (){
-          setState(() {
-            isOpen = !isOpen;
-          });
-        },
-          child: FlareActor(
-        'assets/button-animation.flr',
-        animation: isOpen ? 'activate' : 'deactivate',
-      )),
+      body: Align(
+          alignment: Alignment.bottomCenter,
+          child: SmartFlareAnimation()),
     );
   }
 }

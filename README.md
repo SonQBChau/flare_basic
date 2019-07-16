@@ -1,3 +1,3 @@
 # flare_basic
  
-<img src="https://github.com/SonQBChau/todo_app_ui/blob/master/ss.gif" width="400" height="700">
+<img src="https://github.com/SonQBChau/flare_basic/blob/master/ss.gif" width="417" height="802">

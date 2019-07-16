@@ -21,7 +21,7 @@ class _FlareDemoState extends State<FlareDemo> {
           area: Rect.fromLTWH(0, 0,
               animationWidthThirds,
               halfAnimationHeight),
-          debugArea: true,
+//          debugArea: true,
           guardComingFrom: ['deactivate'],
           animationName: 'camera_tapped'),
 
@@ -30,7 +30,7 @@ class _FlareDemoState extends State<FlareDemo> {
               animationWidthThirds, 0,
               animationWidthThirds,
               halfAnimationHeight),
-          debugArea: true,
+//          debugArea: true,
           guardComingFrom: ['deactivate'],
           animationName: 'pulse_tapped'),
 
@@ -39,7 +39,7 @@ class _FlareDemoState extends State<FlareDemo> {
               animationWidthThirds * 2, 0,
               animationWidthThirds,
               halfAnimationHeight),
-          debugArea: true,
+//          debugArea: true,
           guardComingFrom: ['deactivate'],
           animationName: 'image_tapped'),
 
@@ -49,7 +49,7 @@ class _FlareDemoState extends State<FlareDemo> {
               animationHeight/2,
               animationWidth,
               animationHeight/2),
-          debugArea: true,
+//          debugArea: true,
           animationsToCycle: ['activate', 'deactivate'],
           onAreaTapped: () {
             print('Button tapped!');

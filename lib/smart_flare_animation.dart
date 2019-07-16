@@ -1,5 +1,7 @@
+import 'package:flare_flutter/flare_controls.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
+
 
 enum AnimationToPlay {
   Activate,
@@ -20,7 +22,9 @@ class _SmartFlareAnimationState extends State<SmartFlareAnimation> {
 
   bool isOpen = false;
 
-  AnimationToPlay _animationToPlay = AnimationToPlay.Deactivate;
+//  AnimationToPlay _animationToPlay = AnimationToPlay.Deactivate;
+  final FlareControls animationControls = FlareControls();
+  AnimationToPlay _lastPlayedAnimation;
 
 
   String _getAnimationName(AnimationToPlay animationToPlay) {
@@ -42,9 +46,16 @@ class _SmartFlareAnimationState extends State<SmartFlareAnimation> {
   }
 
   void _setAnimationToPlay(AnimationToPlay animation) {
-    setState(() {
-      _animationToPlay = animation;
-    });
+    var isTappedAnimation = _getAnimationName(animation).contains("_tapped");
+    // We don't want to play the tapped animation if the last played one was deactivate
+    if (isTappedAnimation && _lastPlayedAnimation == AnimationToPlay.Deactivate) {
+      return;
+    }
+
+    animationControls.play(_getAnimationName(animation));
+
+    // remember our last played animation
+    _lastPlayedAnimation = animation;
   }
 
 
@@ -86,7 +97,8 @@ class _SmartFlareAnimationState extends State<SmartFlareAnimation> {
           },
 
           child: FlareActor('assets/button-animation.flr',
-          animation: _getAnimationName(_animationToPlay)),
+          controller: animationControls,
+          animation: 'deactivate'),
       ),
     );
   }
